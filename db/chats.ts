@@ -17,6 +17,7 @@ export const getChatsByWorkspaceId = async (workspaceId: string) => {
     .select("*")
     .eq("workspace_id", workspaceId)
     .order("created_at", { ascending: false })
+    .limit(10)
 
   if (!chats) {
     throw new Error(error.message)
